@@ -25,9 +25,8 @@ class Oauth2UserMiddleware(MiddlewareMixin):
 
     # Fixme: Not yet implemented
     def _http_access_token(self, request):
-
         try:
-            auth_header = request.environ.get('HTTP_AUTHORIZATION')
+            auth_header = request.META['HTTP_AUTHORIZATION']
             if not auth_header:
                 return None
             parts = auth_header.split()
